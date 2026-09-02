@@ -1,0 +1,7 @@
+{
+  "name": "Registro Oficial de Clubes - Aventureros, Conquistadores y Guías Mayores",
+  "description": "Plataforma oficial de registro de miembros con selector interactivo por categorías (Aventureros, Conquistadores y Guías Mayores), panel de administración en /panel, sincronización Realtime y exportación a Excel.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
