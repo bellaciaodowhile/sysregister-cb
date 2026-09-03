@@ -46,6 +46,7 @@ export function exportCategoryToExcel(participants: Participant[], category: Clu
   const categoryData = participants.filter((p) => p.categoria === category);
   const rows = formatStrictRequestedColumns(categoryData);
   const catName = CATEGORY_CONFIGS[category]?.name || category;
+  const sheetName = 'Usuarios'
 
   const worksheet = XLSX.utils.json_to_sheet(rows);
 
@@ -60,9 +61,9 @@ export function exportCategoryToExcel(participants: Participant[], category: Clu
   ];
 
   const workbook = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(workbook, worksheet, catName.substring(0, 31));
+  XLSX.utils.book_append_sheet(workbook, worksheet, sheetName.substring(0, 31));
 
-  const fileName = `Registro_${catName.replace(/\s+/g, '_')}_${new Date().toISOString().slice(0, 10)}.xlsx`;
+  const fileName = `Registro_${catName.replace(/\s+/g, '_')}_${sheetName}_${new Date().toISOString().slice(0, 10)}.xlsx`;
   XLSX.writeFile(workbook, fileName);
 }
 
@@ -78,7 +79,7 @@ export function exportAllCategoriesToExcel(participants: Participant[]) {
   allWs['!cols'] = [
     { wch: 18 }, { wch: 18 }, { wch: 18 }, { wch: 28 }, { wch: 32 }, { wch: 22 }
   ];
-  XLSX.utils.book_append_sheet(workbook, allWs, 'Todos los Inscritos');
+  XLSX.utils.book_append_sheet(workbook, allWs, 'Usuarios');
 
   // 2. Individual Category Sheets
   const categories: ClubCategory[] = ['aventureros', 'conquistadores', 'guias_mayores'];
@@ -94,7 +95,7 @@ export function exportAllCategoriesToExcel(participants: Participant[]) {
     XLSX.utils.book_append_sheet(workbook, catWs, sheetName.substring(0, 31));
   });
 
-  const fileName = `Club_Quest_Registro_Completo_${new Date().toISOString().slice(0, 10)}.xlsx`;
+  const fileName = `Registro_Completo_${new Date().toISOString().slice(0, 10)}.xlsx`;
   XLSX.writeFile(workbook, fileName);
 }
 

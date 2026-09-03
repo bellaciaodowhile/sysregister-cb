@@ -115,7 +115,7 @@ export const HeroIndex: React.FC<HeroIndexProps> = ({ onOpenRegister }) => {
 
         </div>
 
-       <DevCredit whatsappNumber="584122974011" email="codezardi@gmail.com" />
+       <DevCredit whatsappNumber="584122974011" email="codezardi@gmail.com" dark={false}/>
 
       </div>
     </div>

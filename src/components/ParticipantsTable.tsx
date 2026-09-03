@@ -70,7 +70,7 @@ export const ParticipantsTable: React.FC<ParticipantsTableProps> = ({
   };
 
   const copyUsername = (username: string, id: string) => {
-    const cleanUser = `@${username.replace(/^@/, '')}`;
+    const cleanUser = username;
     navigator.clipboard.writeText(cleanUser);
     setCopiedUserKey(id);
     setTimeout(() => setCopiedUserKey(null), 2000);
@@ -607,9 +607,9 @@ export const ParticipantsTable: React.FC<ParticipantsTableProps> = ({
                       {/* 1. Usuario */}
                       <td className="py-3 px-4">
                         <div className="inline-flex items-center space-x-1.5 font-mono font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 group">
-                          <span>@{p.usuario.replace(/^@/, '')}</span>
+                          <span>{p.correo}</span>
                           <button
-                            onClick={() => copyUsername(p.usuario, p.id)}
+                            onClick={() => copyUsername(p.correo, p.id)}
                             className="text-slate-400 hover:text-blue-600 p-0.5 cursor-pointer opacity-70 group-hover:opacity-100"
                             title="Copiar usuario"
                           >
@@ -789,11 +789,11 @@ export const ParticipantsTable: React.FC<ParticipantsTableProps> = ({
                         </h3>
                         <div className="flex items-center space-x-1.5 mt-0.5">
                           <button
-                            onClick={() => copyUsername(p.usuario, p.id)}
+                            onClick={() => copyUsername(p.correo, p.id)}
                             className="inline-flex items-center space-x-1 font-mono font-semibold text-xs text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100 hover:bg-blue-100 transition-colors cursor-pointer"
                             title="Copiar usuario"
                           >
-                            <span>@{p.usuario.replace(/^@/, '')}</span>
+                            <span>{p.correo}</span>
                             {isUserCopied ? (
                               <Check className="w-3 h-3 text-emerald-600 shrink-0" />
                             ) : (

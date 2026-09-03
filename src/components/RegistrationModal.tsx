@@ -34,7 +34,7 @@ export const generateUsernameFromEmail = (correo: string): string => {
   if (!correo.trim()) return '';
   const localPart = correo.trim().toLowerCase().split('@')[0];
   const cleanEmail = localPart.replace(/[^a-z0-9._-]/g, '') || 'miembro';
-  return `@${cleanEmail}26`;
+  return correo.trim();
 };
 
 export const RegistrationModal: React.FC<RegistrationModalProps> = ({

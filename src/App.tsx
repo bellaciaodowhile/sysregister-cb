@@ -141,7 +141,7 @@ export default function App() {
           addNotification({
             title: '¡Sincronización en Vivo!',
             description: `${diff} nuevo(s) miembro(s) sincronizado(s) en tiempo real`,
-            user: `@${newest.usuario.replace(/^@/, '')}`,
+            user: newest.correo,
             category: newest.categoria,
             place: newest.lugar_representa,
             type: 'new_member',
@@ -228,7 +228,7 @@ export default function App() {
       addNotification({
         title: '¡Nuevo Registro Oficial!',
         description: `${newParticipant.nombre} ${newParticipant.apellido}`,
-        user: `@${newParticipant.usuario.replace(/^@/, '')}`,
+        user: newParticipant.correo,
         category: newParticipant.categoria,
         place: newParticipant.lugar_representa,
         type: 'new_member',
